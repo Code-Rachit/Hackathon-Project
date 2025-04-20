@@ -1,0 +1,323 @@
+:root {
+    --primary: #2c3e50;
+    --secondary: #3498db;
+    --bg-primary: #f5f6fa;
+    --text-primary: #2c3e50;
+    --glass-bg: rgba(255, 255, 255, 0.2);
+    --glass-border: rgba(255, 255, 255, 0.3);
+}
+
+/* Initial Welcome Screen */
+.welcome-screen {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: radial-gradient(circle, #4facfe 0%, #00f2fe 100%);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+    transition: opacity 0.5s ease;
+}
+
+.welcome-content {
+    text-align: center;
+    color: white;
+    animation: slideUp 0.8s ease;
+}
+
+.welcome-content h1 {
+    font-size: 3rem;
+    margin-bottom: 1rem;
+    text-shadow: 0 2px 5px rgba(0,0,0,0.2);
+}
+
+.welcome-content button {
+    background: white;
+    border: none;
+    padding: 12px 30px;
+    border-radius: 25px;
+    font-size: 1.2rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+}
+
+.welcome-content button:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 6px 20px rgba(0,0,0,0.15);
+}
+
+/* Main Calculator Container */
+.calculator-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+    opacity: 0;
+    transition: opacity 0.5s ease 0.2s;
+}
+
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 2rem;
+}
+
+.theme-switcher button {
+    background: none;
+    border: none;
+    font-size: 1.5rem;
+    cursor: pointer;
+    margin: 0 5px;
+    transition: transform 0.2s ease;
+}
+
+.theme-switcher button:hover {
+    transform: scale(1.1);
+}
+
+/* Animated Tabs */
+.tabs {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 15px;
+    margin-bottom: 2rem;
+}
+
+.tab {
+    padding: 15px 20px;
+    border: none;
+    border-radius: 15px;
+    cursor: pointer;
+    background: var(--bg);
+    color: var(--text-primary);
+    font-weight: 500;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    transition: all 0.3s ease;
+    backdrop-filter: blur(5px);
+    border: 1px solid var(--glass-border);
+}
+
+.tab.active {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+}
+
+/* Calculator Panes */
+.panes-container {
+    position: relative;
+    min-height: 400px;
+    border-radius: 20px;
+    overflow: hidden;
+    margin-bottom: 2rem;
+}
+
+.pane-background {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: var(--pane-bg);
+    opacity: 0.3;
+    z-index: -1;
+    transition: all 0.5s ease;
+}
+
+.calculator-pane {
+    background: var(--glass-bg);
+    padding: 30px;
+    border-radius: 20px;
+    backdrop-filter: blur(10px);
+    border: 1px solid var(--glass-border);
+    display: none;
+    animation: fadeIn 0.5s ease;
+}
+
+.calculator-pane.active {
+    display: block;
+}
+
+/* Input Elements */
+.input-group {
+    margin: 20px 0;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 15px;
+}
+
+input, select {
+    padding: 12px;
+    border: none;
+    border-radius: 10px;
+    background: rgba(255, 255, 255, 0.8);
+    font-size: 1rem;
+    transition: all 0.3s ease;
+}
+
+input:focus, select:focus {
+    background: white;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+}
+
+/* Results Display */
+.result {
+    margin-top: 20px;
+    padding: 15px;
+    background: rgba(255, 255, 255, 0.9);
+    border-radius: 10px;
+    font-weight: 600;
+    text-align: center;
+    animation: slideUp 0.3s ease;
+}
+
+/* Unit Toggle Buttons */
+.unit-toggle {
+    display: flex;
+    gap: 10px;
+    margin: 10px 0 20px 0;
+    justify-content: flex-start;
+}
+
+.unit-toggle button {
+    background: #dfe6e9;
+    color: #2c3e50;
+    border: none;
+    border-radius: 4px;
+    padding: 6px 14px;
+    cursor: pointer;
+    font-size: 0.95rem;
+    transition: background 0.2s;
+}
+
+.unit-toggle button:hover {
+    background: var(--secondary);
+    color: white;
+}
+
+/* Footer */
+.footer {
+    text-align: center;
+    padding: 20px;
+    color: var(--text-primary);
+    font-style: italic;
+}
+
+/* Animations */
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+@keyframes slideUp {
+    from { transform: translateY(20px); opacity: 0; }
+    to { transform: translateY(0); opacity: 1; }
+}
+
+/* Dark Theme */
+body.dark-theme {
+    --bg-primary: #1a1a1a;
+    --text-primary: #f5f6fa;
+    --glass-bg: rgba(0, 0, 0, 0.2);
+    --glass-border: rgba(255, 255, 255, 0.1);
+    background: var(--bg-primary);
+}
+
+body.dark-theme .calculator-pane {
+    background: var(--glass-bg);
+}
+
+body.dark-theme input,
+body.dark-theme select {
+    background: rgba(0, 0, 0, 0.5);
+    color: white;
+}
+
+body.dark-theme .result {
+    background: rgba(0, 0, 0, 0.5);
+    color: white;
+}
+
+/* Mobile Responsiveness */
+@media (max-width: 600px) {
+    .calculator-pane {
+        padding: 10px;
+    }
+    .input-group {
+        grid-template-columns: 1fr;
+    }
+    .tab {
+        padding: 10px 8px;
+        font-size: 0.95rem;
+    }
+}
+/* Add these new rules at the end of your CSS file */
+
+/* Cartoonish Animated Background */
+.calculator-container {
+    position: relative;
+    overflow: hidden;
+}
+
+.background-animation {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -2;
+    pointer-events: none;
+    background: linear-gradient(-45deg, #ff9a9e, #fad0c4, #a1c4fd, #c2e9fb);
+    background-size: 400% 400%;
+    animation: gradientBG 15s ease infinite;
+}
+
+@keyframes gradientBG {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
+.cartoon-clouds {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+    pointer-events: none;
+}
+
+.cloud {
+    position: absolute;
+    background: rgba(255, 255, 255, 0.9);
+    border-radius: 50%;
+    box-shadow: 0 10px 15px rgba(0,0,0,0.1);
+    animation: float 8s infinite ease-in-out;
+}
+
+@keyframes float {
+    0% { transform: translateY(0) translateX(0); }
+    50% { transform: translateY(-20px) translateX(20px); }
+    100% { transform: translateY(0) translateX(0); }
+}
+
+.cloud1 { width: 120px; height: 40px; top: 10%; left: 5%; }
+.cloud2 { width: 150px; height: 50px; top: 25%; right: 10%; animation-delay: 2s; }
+.cloud3 { width: 100px; height: 35px; bottom: 15%; left: 20%; animation-delay: 4s; }
+
+/* Dark Theme Adjustments */
+body.dark-theme .background-animation {
+    background: linear-gradient(-45deg, #485563, #29323c, #2c3e50, #4ca1af);
+}
+
+body.dark-theme .cloud {
+    background: rgba(45, 52, 54, 0.9);
+    box-shadow: 0 10px 15px rgba(255,255,255,0.1);
+}

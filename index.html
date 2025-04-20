@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Meera's Smart Calculator</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div class="background-animation"></div>
+<div class="cartoon-clouds">
+    <div class="cloud cloud1"></div>
+    <div class="cloud cloud2"></div>
+    <div class="cloud cloud3"></div>
+</div>
+
+
+    
+    <div class="welcome-screen">
+        <div class="welcome-content">
+            <h1>Welcome to Meera's Universe</h1>
+            <p>Where numbers meet magic</p>
+            <button id="enterButton">Enter Calculator</button>
+        </div>
+    </div>
+
+    <
+    <div class="calculator-container" id="mainCalculator">
+        <div class="header">
+            <h1>🧮 The Many Minds of Meera</h1>
+            <div class="theme-switcher">
+                <span>Theme:</span>
+                <button onclick="changeTheme('light')">🌞</button>
+                <button onclick="changeTheme('dark')">🌙</button>
+            </div>
+        </div>
+
+        
+        <div class="tabs">
+            <button class="tab active" data-mode="basic" style="--bg: linear-gradient(135deg, #8e9eab, #eef2f3)">
+                ➕ Basic Math
+            </button>
+            <button class="tab" data-mode="bmi" style="--bg: linear-gradient(135deg, #ff7e5f, #feb47b)">
+                🏋️ BMI Calculator
+            </button>
+            <button class="tab" data-mode="percentage" style="--bg: linear-gradient(135deg, #4facfe, #00f2fe)">
+                % Percentage
+            </button>
+            <button class="tab" data-mode="converter" style="--bg: linear-gradient(135deg, #43e97b, #38f9d7)">
+                🔄 Unit Converter
+            </button>
+        </div>
+
+        <!-- Calculator Panes -->
+        <div class="panes-container">
+            <div class="pane-background" id="paneBackground"></div>
+            
+            <!-- Basic Calculator -->
+            <div class="calculator-pane active" id="basic">
+                <div class="input-group">
+                    <input type="number" id="num1" placeholder="Number 1">
+                    <select id="basicOp">
+                        <option>+</option>
+                        <option>-</option>
+                        <option>*</option>
+                        <option>/</option>
+                    </select>
+                    <input type="number" id="num2" placeholder="Number 2">
+                </div>
+                <div class="result" id="basicResult"></div>
+            </div>
+
+            <!-- BMI Calculator -->
+            <div class="calculator-pane" id="bmi">
+                <div class="unit-toggle">
+                    <button onclick="toggleBMIUnits('metric')">Metric (kg/cm)</button>
+                    <button onclick="toggleBMIUnits('imperial')">Imperial (lbs/in)</button>
+                </div>
+                <div class="input-group">
+                    <input type="number" id="bmiHeight" placeholder="Height (cm)">
+                    <input type="number" id="bmiWeight" placeholder="Weight (kg)">
+                </div>
+                <div class="result" id="bmiResult"></div>
+            </div>
+
+            <!-- Percentage Calculator -->
+            <div class="calculator-pane" id="percentage">
+                <div class="input-group">
+                    <input type="number" id="percentageBase" placeholder="Base value">
+                    <input type="number" id="percentageValue" placeholder="Percentage">
+                </div>
+                <div class="result" id="percentageResult"></div>
+            </div>
+
+            
+            <!-- Unit Converter Pane -->
+<div class="calculator-pane" id="converter">
+    <select id="converterType">
+        <option>Length</option>
+        <option>Temperature</option>
+        <option>Time</option>
+    </select>
+    <div class="input-group">
+        <input type="number" id="converterInput" placeholder="Enter value">
+        <select id="converterFrom"></select>
+        <span>to</span>
+        <select id="converterTo"></select>
+    </div>
+    <div class="result" id="converterResult"></div>
+</div>
+
+
+        <div class="footer">
+            <p>Built with ♥ by Decoders</p>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
