@@ -121,5 +121,5 @@ Radhey Radhey
 
 To contribute in the project, mail me on : mailmerachitsharma@gmail.com
 Also you can analyse the statement first, and think some creative ideas to enhance the solution. So that more and more students like meera can be helped from juggling up for these type of calculations.
-
+Have a look on suggestions, we have got from the users. You can start thinking to implement those suggestions and mail your implemetation steps to us.
 Thank You
